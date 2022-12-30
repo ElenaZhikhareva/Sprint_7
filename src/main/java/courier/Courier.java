@@ -13,12 +13,9 @@ public class Courier {
         this.firstName = firstName;
     }
 
-    public static Courier getRandomCourier(){
+    public static Courier getRandomCourier() {
         return new Courier(
                 RandomStringUtils.randomAlphanumeric(10) + "", "pass", "12"
         );
     }
-
-
-
 }

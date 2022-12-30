@@ -5,7 +5,6 @@ import org.hamcrest.MatcherAssert;
 import org.junit.Before;
 import org.junit.Test;
 
-
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.CoreMatchers.notNullValue;
 
@@ -18,7 +17,7 @@ public class ListOfOrdersTest {
 
     @DisplayName("Проверка списка заказов")
     @Test
-    public void listOfOrdersTest(){
+    public void listOfOrdersTest() {
         Response response = given()
                 .when()
                 .header("Content-type", "application/json")

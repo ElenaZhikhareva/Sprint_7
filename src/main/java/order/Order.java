@@ -13,7 +13,6 @@ public class Order {
     private final String comment;
     private final List<String> color;
 
-
     public Order(String firstName, String lastName, String address, int metroStation, String phone, int rentTime, String deliveryDate, String comment, List<String> color) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -25,5 +24,4 @@ public class Order {
         this.comment = comment;
         this.color = color;
     }
-
 }

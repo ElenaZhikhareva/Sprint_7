@@ -6,7 +6,7 @@ import io.restassured.response.ValidatableResponse;
 import static io.restassured.RestAssured.given;
 
 public class OrderResponse {
-    @Step("Get response for Orders")
+    @Step("Создание заказа")
     public ValidatableResponse getOrdersResponse(Order order) {
         return given()
                 .header("Content-type", "application/json")

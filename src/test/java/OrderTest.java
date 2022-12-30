@@ -8,7 +8,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+
 import java.util.List;
+
 import static org.hamcrest.CoreMatchers.notNullValue;
 
 @RunWith(Parameterized.class)
@@ -46,15 +48,15 @@ public class OrderTest {
     }
 
     @Before
-    public void setUp(){
+    public void setUp() {
         RestAssured.baseURI = "http://qa-scooter.praktikum-services.ru";
     }
 
     @DisplayName("Создание заказа")
     @Test
-    public void createOrderTest(){
+    public void createOrderTest() {
         OrderResponse ordersClient = new OrderResponse();
-        ValidatableResponse emptyPasswordField  = ordersClient.getOrdersResponse(
+        ValidatableResponse emptyPasswordField = ordersClient.getOrdersResponse(
                 new Order(firstNameValue, lastNameValue, addressValue,
                         metroStationValue, phoneValue, rentTimeValue, deliveryDateValue, commentValue, colorValue));
         emptyPasswordField

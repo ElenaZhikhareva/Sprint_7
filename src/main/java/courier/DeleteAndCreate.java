@@ -1,9 +1,7 @@
 package courier;
 
-import courier.Courier;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
-import io.restassured.response.ValidatableResponse;
 import login.Login;
 
 import static io.restassured.RestAssured.given;
@@ -14,7 +12,8 @@ public class DeleteAndCreate {
     public final String existingLoginPassword = "12345";
     public final String existingLoginFirstName = "lalala";
 
-    public void deleteLogin(){
+    @Step("Удаление логина")
+    public void deleteLogin() {
         Login login = new Login(existingLogin, existingLoginPassword);
         Response response =
                 given()
@@ -29,7 +28,8 @@ public class DeleteAndCreate {
                 .delete("/api/v1/courier/login" + id);
     }
 
-    public void createAccount(){
+    @Step("Создание аккаунта")
+    public void createAccount() {
         Courier successfulCourier = new Courier(existingLogin, existingLoginPassword, existingLoginFirstName);
         given()
                 .header("Content-type", "application/json")
@@ -38,5 +38,4 @@ public class DeleteAndCreate {
                 .when()
                 .post("/api/v1/courier");
     }
-
 }

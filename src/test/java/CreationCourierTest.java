@@ -21,20 +21,20 @@ public class CreationCourierTest extends DeleteAndCreate {
 
     @Test
     @DisplayName("Создание нового курьера и проверка, что запрос возвращает ок")
-    public void createNewCourierTest(){
+    public void createNewCourierTest() {
         CourierResponse courierResponse = new CourierResponse();
-        ValidatableResponse duplicateLogin  = courierResponse.getCourierResponse(
+        ValidatableResponse duplicateLogin = courierResponse.getCourierResponse(
                 Courier.getRandomCourier());
         duplicateLogin
-                    .statusCode(201).and()
-                    .body("ok", equalTo(true));
-        }
+                .statusCode(201).and()
+                .body("ok", equalTo(true));
+    }
 
     @Test
     @DisplayName("Нельзя создать двух одинаковых курьеров и если проверка текста ошибки")
     public void nonDoubleCreatedCourierTest() {
         CourierResponse courierResponse = new CourierResponse();
-        ValidatableResponse duplicateLogin  = courierResponse.getCourierResponse(
+        ValidatableResponse duplicateLogin = courierResponse.getCourierResponse(
                 new Courier(existingLogin, existingLoginPassword, existingLoginFirstName));
 
         duplicateLogin
@@ -44,9 +44,9 @@ public class CreationCourierTest extends DeleteAndCreate {
 
     @Test
     @DisplayName("Проверка обязательных полей, отсутствует логин")
-    public void createNewCourierWithMissingDataTest(){ //чтобы создать курьера, нужно передать в ручку все обязательные поля
+    public void createNewCourierWithMissingDataTest() { //чтобы создать курьера, нужно передать в ручку все обязательные поля
         CourierResponse courierClient = new CourierResponse();
-        ValidatableResponse emptyLoginField  = courierClient.getCourierResponse(
+        ValidatableResponse emptyLoginField = courierClient.getCourierResponse(
                 new Courier(null, existingLoginPassword, existingLoginFirstName));
         emptyLoginField
                 .statusCode(400).and()
@@ -54,7 +54,7 @@ public class CreationCourierTest extends DeleteAndCreate {
     }
 
     @After
-    public void tearDown(){
+    public void tearDown() {
         deleteLogin();
     }
 }
